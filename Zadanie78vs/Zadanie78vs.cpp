@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int licznik1, licznik9, n, cyfra;
+    int licznik1, licznik9, n, cyfra,zle;
 	for (int i = 2; i <= 12000; i++) {
 		int i2 = i;
 
@@ -21,7 +21,8 @@ int main()
 
 		if (pierwsza == true) {
 			licznik1 = 0;
-			licznik2 = 0;
+			licznik9 = 0;
+			zle = 0;
 			while (i2 >= 1) {
 				cyfra = i2 % 10;
 				if (cyfra / 1 == 1 && cyfra % 1 == 0) {
@@ -30,11 +31,15 @@ int main()
 				if (cyfra / 9 == 1 && cyfra % 9 == 0) {
 					licznik9++;
 				}
+				if ((cyfra / 2 == 1 && cyfra % 2 == 0) || (cyfra / 3 == 1 && cyfra % 3 == 0) || (cyfra / 4 == 1 && cyfra % 4 == 0) || (cyfra / 5 == 1 && cyfra % 5 == 0) || (cyfra / 6 == 1 && cyfra % 6 == 0) || (cyfra / 7 == 1 && cyfra % 7 == 0) || (cyfra / 8 == 1 && cyfra % 8 == 0)) {
+					zle++;
+				}
+
 				i2 /= 10;
 
 
 			}
-			if ((licznik1 == 1 && licznik2 == 0) || (licznik1 == 0 && licznik2 == 1)) {
+			if (licznik1 == 1 && licznik9 == 1 && zle == 0) {
 				cout << i << endl;
 			}
 		}
